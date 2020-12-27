@@ -7,7 +7,7 @@ function deleteIconListener(evt) {
   let orderId = td.getAttribute("orderId");
   ls = window.localStorage;
   orders = JSON.parse(ls.getItem("orders"));
-  let updatedOrders = _.clone(orders);
+  let updatedOrders = _.cloneDeep(orders);
 
   _.remove(updatedOrders, function (order) {
     return order.id == orderId;

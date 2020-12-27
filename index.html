@@ -256,19 +256,19 @@
                         <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary
                         </div>
                         <div class="p-4">
-                            <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you
-                                have entered.</p>
+                            <!-- <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you
+                                have entered.</p> -->
                             <ul class="list-unstyled mb-4">
                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong
                                         class="text-muted">Order
-                                        Subtotal </strong><strong>$390.00</strong></li>
+                                        Subtotal </strong><strong id="totalPrice"></strong></li>
                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong
-                                        class="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
-                                <li class="d-flex justify-content-between py-3 border-bottom"><strong
-                                        class="text-muted">Tax</strong><strong>$0.00</strong></li>
+                                        class="text-muted">Shipping and handling</strong><strong>Rs 70</strong></li>
+                                <!-- <li class="d-flex justify-content-between py-3 border-bottom"><strong
+                                        class="text-muted">Tax</strong><strong>$0.00</strong></li> -->
                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong
                                         class="text-muted">Total</strong>
-                                    <h5 class="font-weight-bold">$400.00</h5>
+                                    <h5 class="font-weight-bold" id="totalAmout"></h5>
                                 </li>
                             </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block"> Place Order</a>
                         </div>
@@ -279,7 +279,7 @@
         </section>
 
         <!-- ======= Product select dialog ======= -->
-        <div class="modal fade " id="exampleModalCenter" tabindex="-1" role="dialog"
+        <div class="modal fade " id="productSelectModal" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -291,42 +291,34 @@
                     </div>
                     <div class="modal-body">
                         <div class="container">
-
-                            <div class="row justify-content-md-center">
-                                <div class="col-4">
-                                    <b style="align-items: left;">Fragnance jjjjj:</b>
-                                </div>
-                            </div>
-                            <div class="col-md-auto col-8">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="fragRadioOptions" id="fragRadio1"
-                                        value="option1" checked>
-                                    <label class="form-check-label" for="fragRadio1">Rose</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="fragRadioOptions" id="fragRadio2"
-                                        value="option2">
-                                    <label class="form-check-label" for="fragRadio2">Vanilla</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="fragRadioOptions" id="fragRadio3"
-                                        value="option3">
-                                    <label class="form-check-label" for="fragRadio3">Lavender</label>
+                            <div class="row py-1">
+                                <div class="col-12 alert alert-success alert-dismissible fade show">
+                                    <strong>Info: </strong> All fragnances have same cost 😉
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
                                 </div>
                             </div>
 
-                            <div class="row justify-content-md-center">
+                            <div class="row py-1">
+                                <div class="col-12">
+                                    <b style="align-items: left;">Fragnance:</b>
+                                </div>
+                            </div>
+                            <div class="row py-1">
+                                <div class="col-12" id="fragnancesList">
+                                    <!-- dynamic generated fragnances -->
+                                </div>
+                            </div>
+
+
+                            <div class="row py-1 mt-2">
                                 <div class="col-12">
                                     <b>Quantity:</b>
                                 </div>
                             </div>
 
-                            <div class="row justify-content-md-center">
+                            <div class="row py-1">
                                 <div class="col-12">
-                                    <div class="qtyCenter">
-
-                                        <p>
-                                        </p>
+                                    <div class="col-6 pl-0">
                                         <div class="input-group">
                                             <span class="input-group-btn">
                                                 <button type="button" class="btn btn-danger btn-number"
@@ -334,8 +326,8 @@
                                                     <span>-</span>
                                                 </button>
                                             </span>
-                                            <input type="number" name="quant[2]" class="form-control input-number"
-                                                value="1" min="1" max="10">
+                                            <input id="product_quantity" type="number" name="quant[2]"
+                                                class="form-control input-number" value="1" min="1" max="10">
                                             <span class="input-group-btn">
                                                 <button type="button" class="btn btn-success btn-number"
                                                     data-type="plus" data-field="quant[2]">
@@ -347,18 +339,12 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="row justify-content-md-center">
-                                <div class="col-12">
-                                    <b>Amount: 100rs</b>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#exampleModalCenter">Save changes</button>
+                        <button id="addToCartBtnModal" type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#productSelectModal">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -440,13 +426,16 @@
     <script src="assets/js/checkoutTable.js"></script>
     <script src="assets/data/data.js"></script>
     <script src="assets/js/products.js"></script>
-
+    <script src="assets/js/productSelectModal.js"></script>
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/quantiy.js"></script>
-
-
-
+    <script src="assets/js/priceCalculation.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            updateOrderSummary();
+        });
+    </script>
 </body>
 
 </html>

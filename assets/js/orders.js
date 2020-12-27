@@ -1,39 +1,25 @@
 ls = window.localStorage;
 ls.setItem("orders", "");
 const order1 = {
-  id: "order1",
-  itemName: "Rose Small Candle",
-  price: "10.00",
+  id: "product1",
+  itemName: "Small Scented Candle",
+  price: 100,
   varities: {
-    Rose: 1,
+    Walnut: 1,
     Vanilla: 3,
-    Lavender: 5,
+    "Sandalwood Amber": 5,
   },
-  total: 90,
+  total: 900,
 };
 
 const order2 = {
-  id: "order2",
-  itemName: "Rose Medium Candle",
-  price: "20.00",
+  id: "product2",
+  itemName: "Medium Scented Candle",
+  price: 350,
   varities: {
-    Rose: 2,
-    Vanilla: 4,
-    Lavender: 6,
+    "Sandalwood Amber": 1,
   },
-  total: 240,
-};
-
-const order3 = {
-  id: "order3",
-  itemName: "Rose Large Candle",
-  price: "30.00",
-  varities: {
-    Rose: 2,
-    Vanilla: 4,
-    Lavender: 6,
-  },
-  total: 340,
+  total: 350,
 };
 
 orders = [order1, order2];
