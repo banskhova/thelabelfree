@@ -2,20 +2,14 @@
   //////////////    delete icon listener    
 */
 function deleteIconListener(evt) {
-  console.log("delete icon listener");
   evt.stopPropagation();
   let td = evt.target.closest("td");
   let orderId = td.getAttribute("orderId");
-  console.log("typeof orderId", typeof orderId);
-  console.log("orderId............", orderId);
   ls = window.localStorage;
   orders = JSON.parse(ls.getItem("orders"));
-  console.log("orders", orders);
   let updatedOrders = _.clone(orders);
 
   _.remove(updatedOrders, function (order) {
-    console.log("loop order", order);
-    console.log(`${order.id} == ${orderId}`);
     return order.id == orderId;
   });
   console.log("updatedOrders", updatedOrders);
@@ -30,13 +24,10 @@ function deleteIconListener(evt) {
 function updateTableLogic() {
   let ls = window.localStorage;
   var orders = JSON.parse(ls.getItem("orders"));
-  console.log("orders", orders);
-  console.log("table orders.....", orders);
   var tbdy = document.getElementById("checkoutTableBody");
   tbdy.innerHTML = "";
   for (var i = 0; i < orders.length; i++) {
     let order = orders[i];
-    console.log("order", i, order);
     var tr = document.createElement("tr");
     tr.className = "checkoutTableRow";
 
