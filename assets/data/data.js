@@ -6,6 +6,7 @@ const data = {
       url: "assets/img/products/product1.jpg",
       description: "100% soy wax scented candle with 35 grams wax. ",
       price: 100,
+      type: "candle",
     },
     {
       id: "product2",
@@ -13,6 +14,7 @@ const data = {
       url: "assets/img/products/product2.jpg",
       description: "100% soy wax scented candles with 160 grams wax.",
       price: 350,
+      type: "candle",
     },
     {
       id: "product3",
@@ -20,6 +22,7 @@ const data = {
       url: "assets/img/products/product3.jpg",
       description: "100% soy wax scented candles with 160 grams wax.",
       price: 650,
+      type: "candle",
     },
     {
       id: "product4",
@@ -27,6 +30,7 @@ const data = {
       url: "assets/img/products/product4.jpg",
       description: "100% soy wax scented bars/room freshner with 50 grams wax",
       price: 250,
+      type: "bar",
     },
   ],
   varities: [
