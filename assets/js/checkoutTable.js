@@ -16,6 +16,7 @@ function deleteIconListener(evt) {
   ls.setItem("orders", JSON.stringify(updatedOrders));
   // ls.setItem("orders", updatedOrders);
   updateTableLogic();
+  updateOrderSummary();
 }
 
 /*  

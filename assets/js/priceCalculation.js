@@ -14,6 +14,6 @@ function updateOrderSummary() {
   if (orderSubtotalDiv && orderTotalAmountDiv) {
     console.log("object");
     orderSubtotalDiv.innerText = `Rs ${orderSubtotal}`;
-    orderTotalAmountDiv.innerText = `Rs ${orderSubtotal + 70}`;
+    orderTotalAmountDiv.innerText = `Rs ${orderSubtotal + 50}`;
   }
 }

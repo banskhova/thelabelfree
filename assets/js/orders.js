@@ -22,7 +22,7 @@ const order2 = {
   total: 350,
 };
 
-orders = [order1, order2];
+orders = [];
 
 if (ls) {
   ls.setItem("orders", JSON.stringify(orders));
