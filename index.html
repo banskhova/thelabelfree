@@ -168,7 +168,7 @@
                     <!-- products list -->
                 </div>
             </div>
-            </div>ss
+            </div>
 
             </div>
         </section>
@@ -182,7 +182,7 @@
                     <h2>Your Cart</h2>
                 </div>
             </div>
-            <div class="container">
+            <div class="container" id="orders_grid_summary">
                 <div class="row">
                     <div class="col-lg-12 bg-white rounded shadow-sm mb-5">
 
@@ -276,6 +276,26 @@
                 </div>
 
             </div>
+            <div class="container" id="emtpy_cart">
+                <div class="row">
+                    <div class="container-fluid mt-100">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-sm-12 empty-cart-cls text-center"> <img
+                                        src="https://i.imgur.com/dCdflKN.png" width="130" height="130"
+                                        class="img-fluid mb-4 mr-3">
+                                    <h3><strong>Your Cart is Empty</strong></h3>
+                                    <h4>We have variety of awesome products to choose 😉</h4>
+                                    <div class="nav-menu2">
+                                        <a href="#portfolio" class="btn btn-primary cart-btn-transform m-3 "
+                                            data-abc="true"> Explore Products
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </section>
 
         <!-- ======= Product select dialog ======= -->
@@ -444,27 +464,27 @@
                     <div class="w3-section">
                         <label>Name</label>
                         <input class="w3-input w3-border" type="text" placeholder="Name" id="name" required
-                            name="entry.608936030">
+                            value="himmi" name="entry.608936030">
                     </div>
                     <div class="w3-section">
                         <label>Email</label>
                         <input class="w3-input w3-border" type="text" placeholder="Email" id="email" required
-                            name="entry.1873240596">
+                            value="h@h.com" name="entry.1873240596">
                     </div>
                     <div class="w3-section">
                         <label>WhatsApp/Contact Number</label>
                         <input class="w3-input w3-border" type="text" placeholder="Contact" id="phone" required
-                            name="entry.697626103">
+                            value="7376080654" name="entry.697626103">
                     </div>
                     <div class="w3-section">
                         <label>Address With PinCode</label>
                         <input class="w3-input w3-border" type="text" placeholder="Address" id="address" required
-                            name="entry.1096580917">
+                            value="aa" name="entry.1096580917">
                     </div>
                     <div class="w3-section">
                         <label>Product Name</label>
                         <input class="w3-input w3-border" type="text" placeholder="ProductName" id="ProductName"
-                            required name="entry.1649099998">
+                            value="xx" required name="entry.1649099998">
                     </div>
                     <div class="w3-section">
                         <label>Frag Walnut</label>
@@ -581,7 +601,9 @@
 
 
     <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
-    <a href="#cart" class="back-to-cart"><i class="bx bx-cart"></i></a>
+    <div class="nav-menu2">
+        <a href="#cart" class="back-to-cart "><i class="bx bx-cart"></i></a>
+    </div>
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
@@ -605,6 +627,8 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/quantiy.js"></script>
     <script src="assets/js/priceCalculation.js"></script>
+    <script src="assets/js/orders_emtpy_cart_visibility.js"></script>
+
     <script>
         window.addEventListener('DOMContentLoaded', function () {
             updateOrderSummary();

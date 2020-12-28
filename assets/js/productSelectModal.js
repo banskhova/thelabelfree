@@ -113,4 +113,5 @@ document
     );
     updateTableLogic();
     updateOrderSummary();
+    update_Orders_EmtpyCart_Visibility();
   });

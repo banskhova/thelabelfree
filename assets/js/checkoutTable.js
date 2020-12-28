@@ -17,6 +17,7 @@ function deleteIconListener(evt) {
   // ls.setItem("orders", updatedOrders);
   updateTableLogic();
   updateOrderSummary();
+  update_Orders_EmtpyCart_Visibility();
 }
 
 /*  
@@ -101,21 +102,5 @@ function updateTableLogic() {
 
     tbdy.appendChild(tr);
   }
-  addTableRowClickEvent();
 }
 updateTableLogic();
-
-/*  
-  //////////////    table row click event handlers    
-*/
-function checkoutTableRowClick(evt) {
-  console.log("object", evt);
-}
-
-function addTableRowClickEvent() {
-  var elements = document.getElementsByClassName("checkoutTableRow");
-
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].addEventListener("click", checkoutTableRowClick, false);
-  }
-}
