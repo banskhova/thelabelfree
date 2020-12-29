@@ -17,7 +17,12 @@ const order2 = {
   itemName: "Medium Scented Candle",
   price: 350,
   varities: {
-    "Sandalwood Amber": 1,
+    Walnut: 1,
+    Vanilla: 2,
+    "Green Apple": 3,
+    "Cocoa Butter": 4,
+    Rose: 5,
+    "Sandalwood Amber": 6,
   },
   total: 350,
 };
@@ -30,4 +35,8 @@ if (ls) {
   //console.log(JSON.parse(data));
 } else {
   alert("plz use latest browser");
+}
+
+function resetOrders() {
+  ls.setItem("orders", JSON.stringify([]));
 }

@@ -19,6 +19,7 @@
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/snackbar.css" rel="stylesheet">
     <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
@@ -37,6 +38,9 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
     <!-- =======================================================
   * Template Name: MyResume - v2.2.0
   * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
@@ -55,7 +59,7 @@
 
         <nav class="nav-menu">
             <ul>
-                <li class="#active"><a href="hero"><i class="bx bx-home"></i> <span>Home</span></a></li>
+                <li class="#active"><a href="#hero"><i class="bx bx-home"></i> <span>Home</span></a></li>
                 <li><a href="#about"><i class="bx bx-user"></i> <span>Founder</span></a></li>
                 <li><a href="#portfolio"><i class="bx bx-book-content"></i> <span>Our Products</span></a></li>
                 <li><a href="#cart"><i class="bx bx-cart"></i> <span>Your Cart</span></a></li>
@@ -109,7 +113,7 @@
                             idea of The Label Free Shop.<br>
                             <br> We started off as a small businiess with limited budget and here we are a family of
                             hundreds of starified customers from all over India. The Label Free Shop has a presence
-                            accross all the states throughou the country.
+                            accross all the states throughout the country.
                         </p>
                     </div>
                 </div>
@@ -270,10 +274,13 @@
                                         class="text-muted">Total</strong>
                                     <h5 class="font-weight-bold" id="totalAmout"></h5>
                                 </li>
-                            </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block"> Place Order</a>
+                            </ul><button class="btn btn-dark rounded-pill py-2 btn-block" data-toggle="modal"
+                                data-target="#placeOrderModal">
+                                Checkout</button>
                         </div>
                     </div>
                 </div>
+            </div>
 
             </div>
             <div class="container" id="emtpy_cart">
@@ -299,7 +306,7 @@
         </section>
 
         <!-- ======= Product select dialog ======= -->
-        <div class="modal fade " id="productSelectModal" tabindex="-1" role="dialog"
+        <div class="modal " id="productSelectModal" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -445,152 +452,92 @@
     <body>
 
 
-        <!-- Start Contact Section -->
-        <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
-            <div class="w3-content" style="max-width:600px">
-                <h4 class="w3-center"><b>Contact Us</b></h4>
+        <!-- place order modal -->
+        <div class="modal" id="placeOrderModal" tabindex="-1" role="dialog" aria-labelledby="placeOrderModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="col-2"></div>
+                        <h5 class="modal-title col-8 text-center" id="exampleModalCenterTitle">Customer Information
+                        </h5>
+                        <button type="button" class="close col-2 pt-4" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="w3-container " id="contact">
+                            <div class="w3-content" style="max-width:600px">
+                                <script type="text/javascript">var submitted = false;</script>
 
-                <script type="text/javascript">var submitted = false;</script>
+                                <!--Update the URL for thank you page on form submit -->
+                                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                                    onload=""></iframe>
 
-                <!--Update the URL for thank you page on form submit -->
-                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted)"></iframe>
+                                <!-- Update the Google forms URL in action-->
+                                <form
+                                    action="https://docs.google.com/forms/u/3/d/e/1FAIpQLSc4kS7CfhvcaSULynDPDqX9qM-96QR8AdVYYdha5v0rZhpZqw/formResponse"
+                                    method="post" target="hidden_iframe">
+                                    <div class=" w3-section">
+                                        <label>Name</label>
+                                        <input class="w3-input w3-border" type="text" placeholder="Name" id="name"
+                                            required name="entry.608936030">
+                                    </div>
+                                    <div class="w3-section">
+                                        <label>Email</label>
+                                        <input class="w3-input w3-border" type="text" placeholder="Email" id="email"
+                                            required name="entry.1873240596">
+                                    </div>
+                                    <div class="w3-section">
+                                        <label>WhatsApp/Contact Number</label>
+                                        <input class="w3-input w3-border" type="text" placeholder="Contact" id="phone"
+                                            required name="entry.697626103">
+                                    </div>
+                                    <div class="w3-section">
+                                        <label>Address With PinCode</label>
+                                        <input class="w3-input w3-border" type="text" placeholder="Address" id="address"
+                                            required name="entry.1096580917">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row col-12 d-flex justify-content-around">
+                            <button type="button" class="col-5 btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button id="place_order" type="button" class="col-5 btn btn-primary" data-dismiss="modal"
+                                data-toggle="modal" data-target="#loaderModal">Place Order</button>
+                        </div>
 
-                <!-- Update the Google forms URL in action-->
-                <form
-                    action="https://docs.google.com/forms/u/3/d/e/1FAIpQLSc4kS7CfhvcaSULynDPDqX9qM-96QR8AdVYYdha5v0rZhpZqw/formResponse"
-                    method="post" target="hidden_iframe" onsubmit="return validateForm(); ">
-
-
-                    <div class="w3-section">
-                        <label>Name</label>
-                        <input class="w3-input w3-border" type="text" placeholder="Name" id="name" required
-                            value="himmi" name="entry.608936030">
                     </div>
-                    <div class="w3-section">
-                        <label>Email</label>
-                        <input class="w3-input w3-border" type="text" placeholder="Email" id="email" required
-                            value="h@h.com" name="entry.1873240596">
-                    </div>
-                    <div class="w3-section">
-                        <label>WhatsApp/Contact Number</label>
-                        <input class="w3-input w3-border" type="text" placeholder="Contact" id="phone" required
-                            value="7376080654" name="entry.697626103">
-                    </div>
-                    <div class="w3-section">
-                        <label>Address With PinCode</label>
-                        <input class="w3-input w3-border" type="text" placeholder="Address" id="address" required
-                            value="aa" name="entry.1096580917">
-                    </div>
-                    <div class="w3-section">
-                        <label>Product Name</label>
-                        <input class="w3-input w3-border" type="text" placeholder="ProductName" id="ProductName"
-                            value="xx" required name="entry.1649099998">
-                    </div>
-                    <div class="w3-section">
-                        <label>Frag Walnut</label>
-                        <input class="w3-input w3-border" type="text" placeholder="fWalnut" id="fWalnut"
-                            name="entry.408696562">
-                    </div>
-                    <div class="w3-section">
-                        <label>Frag Vanilla</label>
-                        <input class="w3-input w3-border" type="text" placeholder="fVanilla" id="fVanilla"
-                            name="entry.1257950400">
-                    </div>
-                    <div class="w3-section">
-                        <label>Frag Green Apple</label>
-                        <input class="w3-input w3-border" type="text" placeholder="fGreenApp" id="fGreenApple"
-                            name="entry.1856202983">
-                    </div>
-                    <div class="w3-section">
-                        <label>Frag Cocoa Butter</label>
-                        <input class="w3-input w3-border" type="text" placeholder="fButter" id="fButter"
-                            name="entry.2009171366">
-                    </div>
-                    <div class="w3-section">
-                        <label>Frag Rose</label>
-                        <input class="w3-input w3-border" type="text" placeholder="fRose" id="fRose"
-                            name="entry.919569271">
-                    </div>
-                    <div class="w3-section">
-                        <label>Frag SandalWood</label>
-                        <input class="w3-input w3-border" type="text" placeholder="fSandal" id="fSandal"
-                            name="entry.889679725">
-                    </div>
-
-
-
-
-                    <div class="w3-section">
-                        <button class="w3-button w3-block w3-black w3-margin-bottom" type="submit">SEND</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-        <script type="text/javascript">
-            function validateName() {
-                var name = document.getElementById('name').value;
-                if (name.length == 0) {
-                    alert("Name can't be blank");
-                    return false;
-
-                }
-                if (!name.match(/^[a-zA-Z]{3,}(?: [a-zA-Z]+){0,2}$/)) {
-                    alert("Please enter your correct name");//Validation Message
-                    return false;
-                }
-                return true;
-            }
-
-            function validatePhone() {
-                var phone = document.getElementById('phone').value;
-                if (phone.length == 0) {
-                    alert("Phone number can't be blank");//Validation Message
-                    return false;
-                }
-
-                if (!phone.match(/^[0]?[789]\d{9}$/)) {
-                    alert("Please enter a correct phone number");//Validation Message
-                    return false;
-                }
-
-                return true;
-
-            }
-
-            function validateEmail() {
-
-                var email = document.getElementById('email').value;
-                if (email.length == 0) {
-                    alert("Email can't be blank");//Validation Message
-                    return false;
-
-                }
-
-                if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-                    alert("Please enter a correct email address");//Validation Message
-                    return false;
-
-                }
-
-                return true;
-
-            }
-
-
-            function validateForm() {
-                if (!validateName() || !validatePhone() || !validateEmail()) {
-
-                    alert("Form not submitted");//Validation Message
-                    return false;
-                }
-                else {
-                    submitted = true;
-                    return true;
-                }
-            }
-        </script>
-
         <!-- End Contact Section -->
+
+        <!-- loader modal -->
+        <div class="modal" id="loaderModal" tabindex="-1" role="dialog" aria-labelledby="loaderModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="container py-4">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <div class="spinner-grow" role="status">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <p class="col-12 text-center">Processing your order ...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- toast -->
+        <div id="snackbar"></div>
 
     </body>
 
@@ -628,6 +575,10 @@
     <script src="assets/js/quantiy.js"></script>
     <script src="assets/js/priceCalculation.js"></script>
     <script src="assets/js/orders_emtpy_cart_visibility.js"></script>
+    <script src="assets/js/validate.js"></script>
+    <script src="assets/js/formSubmit.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/addToCartModal.js"></script>
 
     <script>
         window.addEventListener('DOMContentLoaded', function () {
