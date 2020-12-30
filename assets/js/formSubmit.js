@@ -1,12 +1,13 @@
 function placeOrder() {
-  if (!validateName() || !validatePhone() || !validateEmail()) {
+  if (!validateName() || !validateEmail() || !validatePhone()) {
     // show some error toast
     return false;
   }
 
+  $("#placeOrderModal").modal("hide");
+  showLoader();
   ls = window.localStorage;
   var orders = JSON.parse(ls.getItem("orders"));
-  console.log("orders", orders);
 
   var myHeaders = new Headers();
   myHeaders.append(
@@ -17,7 +18,6 @@ function placeOrder() {
   var fetchArray = [];
   for (var i = 0; i < orders.length; i++) {
     var order = orders[i];
-    console.log("order", order);
     var formdata = new FormData();
     const name = $("#name")[0].value;
     const email = $("#email")[0].value;
@@ -26,7 +26,7 @@ function placeOrder() {
     formdata.append("entry.608936030", name);
     formdata.append("entry.1873240596", email);
     formdata.append("entry.697626103", number);
-    formdata.append("entry.1096580917", "address");
+    formdata.append("entry.1096580917", address);
     formdata.append("entry.1649099998", order.itemName);
 
     var walnutQty = order.varities["Walnut"];
@@ -58,7 +58,6 @@ function placeOrder() {
       )
     );
   }
-  console.log("fetchArray", fetchArray);
   Promise.all(fetchArray)
     .then((response) => {
       success();

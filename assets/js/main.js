@@ -69,7 +69,6 @@
   });
 
   $(document).on("click", ".nav-menu2 a, .scrollto", function (e) {
-    console.log("transition");
     if (
       location.pathname.replace(/^\//, "") ==
         this.pathname.replace(/^\//, "") &&

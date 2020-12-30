@@ -3,7 +3,6 @@ $("#productSelectModal").on("show.bs.modal", function (event) {
   document.getElementById("product_quantity").value = "1";
   document.getElementById("exampleModalLongTitle").value = "test";
 
-  console.log("inside modal listener......");
   let ls = window.localStorage;
   let fragnances = JSON.parse(ls.getItem("varities"));
   var fragnancesContainer = document.getElementById("fragnancesList");
@@ -25,7 +24,6 @@ $("#productSelectModal").on("show.bs.modal", function (event) {
 });
 
 $("#productSelectModal").on("hide.bs.modal", function (event) {
-  console.log("hide called");
   window.localStorage.setItem("selectedProduct", "");
 });
 
@@ -33,7 +31,6 @@ $("#productSelectModal").on("hide.bs.modal", function (event) {
 document
   .getElementById("addToCartBtnModal")
   .addEventListener("click", function () {
-    console.log("add to cart clicked");
     var ls = window.localStorage;
     var orders = JSON.parse(ls.getItem("orders"));
     var products = JSON.parse(ls.getItem("products"));
@@ -53,36 +50,24 @@ document
     product_quantity = Number(
       document.getElementById("product_quantity").value
     );
-    console.log({
-      product_quantity,
-      selectedFragnance,
-      orders,
-      selectedProductId,
-      products,
-    });
 
     const existingOrderIndex = _.findIndex(orders, { id: selectedProductId });
-    console.log("existingOrderIndex", existingOrderIndex);
     var product = _.find(products, { id: selectedProductId });
-    console.log("product", product);
     var selectedFragnance = fragnances[selectedFragnance];
 
     if (existingOrderIndex !== -1) {
       // product exits in cart
       var existingOrder = _.cloneDeep(orders)[existingOrderIndex];
 
-      console.log("existingOrder", existingOrder);
       existingOrder.varities[selectedFragnance]
         ? (existingOrder.varities[selectedFragnance] += product_quantity)
         : (existingOrder.varities[selectedFragnance] = 1);
       existingOrder.total += existingOrder.price;
-      console.log("order after countupdate", orders);
       var newOrders = _.cloneDeep(orders);
       // remove old product order data
       _.remove(newOrders, {
         id: existingOrder.id,
       });
-      console.log("newOrders", newOrders);
       // update old order data with current state
       newOrders.push(existingOrder);
     } else {
@@ -96,10 +81,8 @@ document
         type: product.type,
         total: product.price * product_quantity,
       };
-      console.log("new order", order);
       var newOrders = _.cloneDeep(orders);
       newOrders.push(order);
-      console.log("else setting new orders", newOrders);
     }
     // refresh cart table
 

@@ -32,7 +32,6 @@ orders = [];
 if (ls) {
   ls.setItem("orders", JSON.stringify(orders));
   const data = ls.getItem("orders");
-  //console.log(JSON.parse(data));
 } else {
   alert("plz use latest browser");
 }

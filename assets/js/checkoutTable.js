@@ -12,7 +12,6 @@ function deleteIconListener(evt) {
   _.remove(updatedOrders, function (order) {
     return order.id == orderId;
   });
-  console.log("updatedOrders", updatedOrders);
   ls.setItem("orders", JSON.stringify(updatedOrders));
   // ls.setItem("orders", updatedOrders);
   updateTableLogic();

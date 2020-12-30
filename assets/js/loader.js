@@ -6,12 +6,15 @@ function showLoader() {
 }
 
 function hideLoader() {
+  $("#loaderModal").modal("show");
+}
+
+function hideLoader() {
   $("#loaderModal").modal("hide");
   $(".modal-backdrop").remove();
 }
 
 function success() {
-  console.log("success........");
   showToast("Order placed !! 🥳");
   hideLoader();
   resetOrders();
@@ -19,7 +22,6 @@ function success() {
 }
 
 function error() {
-  console.log("error.........");
   showToast("Something went wrong !! 😞");
   hideLoader();
 }

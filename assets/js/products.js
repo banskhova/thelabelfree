@@ -35,7 +35,6 @@ function renderProducts() {
 renderProducts();
 
 function addToCartListener(event) {
-  console.log("hello", event.target);
   var productId = event.target.getAttribute("productid");
   window.localStorage.setItem("selectedProduct", productId);
 }
