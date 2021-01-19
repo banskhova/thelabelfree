@@ -7,16 +7,15 @@ $("#productSelectModal").on("show.bs.modal", function (event) {
   let fragnances = JSON.parse(ls.getItem("varities"));
   var fragnancesContainer = document.getElementById("fragnancesList");
   fragnancesContainer.innerHTML = "";
+  fragnancesContainer.classList.add("col");
   for (var i = 0; i < fragnances.length; i++) {
     let div = document.createElement("div");
-    div.className = "form-check form-check-inline";
+    div.className = "form-check form-check-inline col-12";
     div.innerHTML = `
-        <input class="form-check-input" type="radio" name="fragRadioOptions" id="fragRadio${i}" value="${i}" ${
+    <label class="form-check-label" for="fragRadio${i}"><input class="form-check-input" type="radio" name="fragRadioOptions" id="fragRadio${i}" value="${i}" ${
       fragnances[i] === "Walnut" ? "checked" : null
-    }>
-        <label class="form-check-label" for="fragRadio${i}">${
-      fragnances[i]
-    }</label> 
+    }>${fragnances[i]}
+    </label> 
     `;
 
     fragnancesContainer.appendChild(div);
